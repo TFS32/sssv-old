@@ -22,16 +22,16 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def update?
-    owner_or_tech?
+    owner_or_employee?
   end
 
   def destroy?
-    owner_or_tech?
+    owner_or_employee?
   end
 
   private
 
-  def owner_or_tech?
-    record.user == user || user.tech
+  def owner_or_employee?
+    record.citizen == user || ['manager', 'tech'].include?(user.role)
   end
 end
