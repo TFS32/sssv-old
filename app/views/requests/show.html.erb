@@ -1,0 +1,18 @@
+<div class="container">
+<h1 class = "d-flex justify-content-center">Info about Request</h1>
+<br>
+<p><b> Instrument:     </b><%= @request.instrument %> </p>
+<p><b> Service:   </b><%= @request.service %> </p>
+<p><b> Location: </b><%= @request.location %> </p>
+<p><b> Status: </b><%= @request.status %> </p>
+<p><b> Description: </b><%= @request.description %> </p>
+<p><b> Report: </b><%= @request.report %> </p>
+<br>
+<%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
+
+<%= link_to 'Remove', request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
+
+<%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
+
+<%#= link_to 'Google', 'https://google.com', class: 'link' %>
+</div>

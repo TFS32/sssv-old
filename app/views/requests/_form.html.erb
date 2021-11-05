@@ -1,0 +1,12 @@
+  <div class='container'>
+  <%= simple_form_for(@request) do |f| %>
+    <%= f.input :instrument %>
+    <%= f.input :service %>
+    <%= f.input :location %>
+    <%= f.input :status %>
+    <%= f.input :description %>
+    <%= f.input :report %>
+
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
