@@ -1,7 +1,7 @@
 class RequestPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all 
     end
   end
 
@@ -23,6 +23,10 @@ class RequestPolicy < ApplicationPolicy
 
   def update?
     owner_or_employee?
+  end
+
+  def get?
+    owner_or_tech?
   end
 
   def destroy?

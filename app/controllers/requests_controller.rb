@@ -1,9 +1,16 @@
 class RequestsController < ApplicationController
-    before_action :set_request, only: [:show, :edit, :update] #, :destroy]
+    before_action :set_request, only: [:get, :show, :edit, :update] #, :destroy]
 
     def index
       # if params[:query].blank?
+       
+       if current_user.role == "manager"
         @requests = policy_scope(Request)
+       elsif  current_user.role == "tech"
+        @requests = policy_scope(Request.where(tech_id:nil).or(Request.where(tech_id:current_user.id)))
+       elsif current_user.role == "citizen"
+        raise StandardError
+       end
       # else
       #  @requests = policy_scope(Request.search_requests(params[:query]))
       #  render 'index'
@@ -37,6 +44,12 @@ class RequestsController < ApplicationController
       # set_request - Substituido pelo before_action
       @request.update(request_params)
       redirect_to request_path(@request)
+    end
+
+    def get
+      # set_request - Substituido pelo before_action
+      @request.update(tech_id:current_user.id)
+      redirect_to requests_path
     end
   
     # def destroy
