@@ -8,12 +8,13 @@
 
 puts "Starting to seed"
 puts "..."
-user1 = User.create!(full_name: 'John Snow', email: 'night_watcher@thegreatwall.com', password: '123456')
-user2 = User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@dragonstone.com', password: '123456')
-user3 = User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@castle.com', password: '123456')
-Request.create!(citizen: user1)
-Request.create!(citizen: user2, tech: user3)
+user1 = User.create!(full_name: 'John Snow', email: 'night_watcher@gmail.com', password: '123456')
+user2 = User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@gmail.com', password: '123456')
+user3 = User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@gmail.com', password: '123456')
+Request.create!(instrument: 'gas', service: 'verification', status: 'aberta', citizen: user1)
+Request.create!(instrument: 'luz', service: 'expertise', status: 'aberta', citizen: user2, tech: user3)
 puts "Seed completed"
+
 
 # Enter this into the Rails console to instantiate users and requests:
 # user1 = User.find(1)
