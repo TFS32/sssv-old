@@ -8,9 +8,9 @@
 
 puts "Starting to seed"
 puts "..."
-User.create!(full_name: 'John Snow', email: 'night_watcher@thegreatwall.com', password: '123456')
-User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@dragonstone.com', password: '123456')
-User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@castle.com', password: '123456')
+user1 = User.create!(full_name: 'John Snow', email: 'night_watcher@thegreatwall.com', password: '123456')
+user2 = User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@dragonstone.com', password: '123456')
+user3 = User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@castle.com', password: '123456')
 Request.create!(citizen: user1)
 Request.create!(citizen: user2, tech: user3)
 puts "Seed completed"
