@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :status
       t.references :citizen, index: true, foreign_key: { to_table: :users }
-      t.references :tech, foreign_key: { to_table: :users }
+      t.references :tech, index: true, foreign_key: { to_table: :users }
       t.text :description
       t.text :report
 
