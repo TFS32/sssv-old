@@ -4,4 +4,34 @@ class RequestPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    true
+  end
+
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    owner_or_tech?
+  end
+
+  def destroy?
+    owner_or_tech?
+  end
+
+  private
+
+  def owner_or_tech?
+    record.user == user || user.tech
+  end
 end
