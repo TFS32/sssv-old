@@ -10,7 +10,7 @@
 <br>
 <%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
 
-<%# <%= link_to 'Remove', request_path(@request), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
+<%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
 
 <%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
 

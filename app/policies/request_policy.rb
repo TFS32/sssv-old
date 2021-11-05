@@ -1,7 +1,7 @@
 class RequestPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all 
     end
   end
 
@@ -25,6 +25,10 @@ class RequestPolicy < ApplicationPolicy
     owner_or_tech?
   end
 
+  def get?
+    owner_or_tech?
+  end
+
   def destroy?
     owner_or_tech?
   end
@@ -32,6 +36,6 @@ class RequestPolicy < ApplicationPolicy
   private
 
   def owner_or_tech?
-    record.user == user || user.tech
+    record.citizen == user || user.user_type == "tech"
   end
 end
