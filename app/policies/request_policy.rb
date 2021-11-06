@@ -26,12 +26,12 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def get?
-    owner_or_tech?
-  end
-
-  def destroy?
     owner_or_employee?
   end
+
+  #def destroy?
+  #  owner_or_employee?
+  #end
 
   private
 
