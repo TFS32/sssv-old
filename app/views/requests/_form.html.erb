@@ -4,6 +4,10 @@
     <%= f.input :service %>
     <%= f.input :location %>
     <%= f.input :description %>
+    <% if @request.status != "aberta" %>
+      <%= f.input :report %>
+      <%= f.input :status, as: :radio_buttons, collection: [['0', 'em andamento'], ['1', 'realizada']], label_method: :second, value_method: :second %>
+    <% end %>  
    
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>

@@ -6,12 +6,15 @@
 <p><b> Location: </b><%= @request.location %> </p>
 <p><b> Status: </b><%= @request.status %> </p>
 <p><b> Description: </b><%= @request.description %> </p>
-<p><b> Report: </b><%= @request.report %> </p>
+<% if @request.status != "aberta" %>
+  <p><b> Report: </b><%= @request.report %> </p>
+<% end %> 
 <br>
 <%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
 
-<%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
-
+<% if @request.status == "aberta" %>
+  <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
+<% end %>
 <%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
 
 <%#= link_to 'Google', 'https://google.com', class: 'link' %>
