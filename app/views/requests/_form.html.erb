@@ -1,8 +1,8 @@
   <div class='container'>
   <%= simple_form_for(@request) do |f| %>
-    <%= f.input :instrument %>
+    <%= f.input :instrument, collection: Request::INSTRUMENTS %>
     <%= f.input :service, collection: Request::SERVICES %>
-    <%= f.input :location %>
+    <%= f.input :location, collection: Request::STATES %>
     <%= f.input :description %>
     <% if @request.status != "Aberta" %>
       <%= f.input :report %>
