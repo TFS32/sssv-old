@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_11_07_013747) do
     t.string "instrument"
     t.string "service"
     t.string "location"
-    t.string "status", default: "open"
+    t.string "status", default: "Aberta"
     t.bigint "citizen_id"
     t.bigint "tech_id"
     t.text "description"
