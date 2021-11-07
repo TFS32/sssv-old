@@ -11,13 +11,13 @@ puts "Seeding started."
 puts "..."
 user1 = User.create!(full_name: 'John Snow', email: 'night_watcher@gmail.com', password: '123456')
 user2 = User.create!(full_name: 'Daenerys Targaryen', email: 'stormborn@gmail.com', password: '123456')
-user3 = User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@gmail.com', password: '123456', role: 'tech')
+user3 = User.create!(full_name: 'Tyrion Lannister',  email: 'dwarfs@gmail.com', password: '123456', role: 'tech')
 user4 = User.create!(full_name: 'Cidadão Instigado', email: 'citizen@gmail.com', password: '123456')
 user5 = User.create!(full_name: 'Servidor Atarefado', email: 'worker@gmail.com', password: '123456', role: 'tech')
 user6 = User.create!(full_name: 'Gerente Irritado', email: 'manager@gmail.com', password: '123456', role: 'manager')
 Request.create!(instrument: 'Medidor de Gás', service: 'verification', citizen: user1)
-Request.create!(instrument: 'Medidor de Energia Elétrica', service: 'expertise', citizen: user2, tech: user3)
-Request.create!(instrument: 'Medidor de Água', service: 'verification', citizen: user4, tech: user5)
+Request.create!(instrument: 'Medidor de Energia Elétrica', status: 'em andamento', service: 'expertise', citizen: user2, tech: user3)
+Request.create!(instrument: 'Medidor de Água', status: 'em andamento', service: 'verification', citizen: user4, tech: user5)
 puts "Seed completed!"
 
 # Enter this into the Rails console to instantiate users and requests:
