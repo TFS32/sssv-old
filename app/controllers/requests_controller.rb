@@ -4,10 +4,10 @@ class RequestsController < ApplicationController
   def index
     case current_user.role
     when "manager"
-      @requests = policy_scope(Request)
+      @requests = policy_scope(Request.where(location: current_user.location))
     when "tech"
-      @requests = policy_scope(Request.where(tech: nil).or(Request.where(tech: current_user)))
-    when "citizen"
+      @requests = policy_scope(Request.where(tech: nil, location: current_user.location ).or(Request.where(tech: current_user, location: current_user.location)))
+     when "citizen"
       @requests = policy_scope(Request.where(citizen: current_user))
     end
     # Find the correct index view to render based on user role
