@@ -28,8 +28,11 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.citizen = current_user
     authorize @request
-    @request.save
-    redirect_to request_path(@request)
+    if @request.save
+      redirect_to request_path(@request), notice: 'Request was successfully created into the catalog.'
+    else
+      render :new
+    end
   end
 
   def edit
