@@ -15,9 +15,9 @@ user3 = User.create!(full_name: 'Tyrion Lannister', email: 'dwarfs@gmail.com', p
 user4 = User.create!(full_name: 'Cidadão Instigado', email: 'citizen@gmail.com', password: '123456')
 user5 = User.create!(full_name: 'Servidor Atarefado', email: 'worker@gmail.com', password: '123456', role: 'tech')
 user6 = User.create!(full_name: 'Gerente Irritado', email: 'manager@gmail.com', password: '123456', role: 'manager')
-Request.create!(instrument: 'gas', service: 'verification', citizen: user1)
-Request.create!(instrument: 'luz', service: 'expertise', citizen: user2, tech: user3)
-Request.create!(instrument: 'água', service: 'verification', citizen: user4, tech: user5)
+Request.create!(instrument: 'Medidor de Gás', service: 'verification', citizen: user1)
+Request.create!(instrument: 'Medidor de Energia Elétrica', service: 'expertise', citizen: user2, tech: user3)
+Request.create!(instrument: 'Medidor de Água', service: 'verification', citizen: user4, tech: user5)
 puts "Seed completed!"
 
 # Enter this into the Rails console to instantiate users and requests:
