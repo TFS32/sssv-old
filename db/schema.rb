@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_180614) do
+ActiveRecord::Schema.define(version: 2021_11_07_013747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_180614) do
     t.string "instrument"
     t.string "service"
     t.string "location"
-    t.string "status"
+    t.string "status", default: "Aberta"
     t.bigint "citizen_id"
     t.bigint "tech_id"
     t.text "description"

@@ -1,21 +1,21 @@
 <div class="container">
-<h1 class = "d-flex justify-content-center">Info about Request</h1>
-<br>
-<p><b> Instrument:     </b><%= @request.instrument %> </p>
-<p><b> Service:   </b><%= @request.service %> </p>
-<p><b> Location: </b><%= @request.location %> </p>
-<p><b> Status: </b><%= @request.status %> </p>
-<p><b> Description: </b><%= @request.description %> </p>
-<% if @request.status != "aberta" %>
-  <p><b> Report: </b><%= @request.report %> </p>
-<% end %> 
-<br>
-<%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
+  <h1 class = "d-flex justify-content-center">Info about Request</h1>
+  <br>
+  <p><b> Instrument:     </b><%= @request.instrument %> </p>
+  <p><b> Service:   </b><%= @request.service %> </p>
+  <p><b> Location: </b><%= @request.location %> </p>
+  <p><b> Status: </b><%= @request.status %> </p>
+  <p><b> Description: </b><%= @request.description %> </p>
+  <% if @request.status != "Aberta" %>
+    <p><b> Report: </b><%= @request.report %> </p>
+  <% end %>
+  <br>
+  <%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
 
-<% if @request.status == "aberta" %>
-  <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
-<% end %>
-<%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
+  <% if @request.status == "Aberta" %>
+    <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
+  <% end %>
+  <%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
 
-<%#= link_to 'Google', 'https://google.com', class: 'link' %>
+  <%#= link_to 'Google', 'https://google.com', class: 'link' %>
 </div>
