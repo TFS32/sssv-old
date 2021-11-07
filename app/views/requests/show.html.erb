@@ -12,7 +12,7 @@
   <br>
   <%= link_to 'Edit', edit_request_path(@request), class: "btn btn-primary"   %>
 
-  <% if @request.status == "Aberta" %>
+  <% if @request.status == "Aberta" && current_user.role == "tech" %>
     <%= link_to 'Get Request', request_get_path(@request), method: :patch, class: "btn btn-danger"  %>
   <% end %>
   <%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
