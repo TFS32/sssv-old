@@ -1,15 +1,15 @@
   <div class='container'>
-  <%= simple_form_for(@request) do |f| %>
+    <%= simple_form_for(@request) do |f| %>
     <%= f.input :instrument, collection: Request::INSTRUMENTS %>
     <%= f.input :service, collection: Request::SERVICES %>
     <%= f.input :location, collection: Request::STATES %>
     <%= f.input :description %>
     <% if @request.status != "Aberta" %>
       <%= f.input :report %>
-      <%= f.input :status, as: :radio_buttons, collection: [['0', 'em andamento'], ['1', 'realizada']], label_method: :second, value_method: :second %>
+      <%= f.input :status, as: :radio_buttons, collection: [['0', 'Em andamento'], ['1', 'Realizada']], label_method: :second, value_method: :second %>
     <% end %>
 
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
-    <%= link_to 'Back', requests_path, class: "btn btn-warning"  %>
+    <%= f.submit 'Submit', class: "br-button" %>
+    <%= link_to 'Back', requests_path, class: "br-button"  %>
   <% end %>
   </div>
